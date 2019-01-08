@@ -148,3 +148,26 @@ sub descriptionSurroundFromLowerLeft-han uni2ECD descriptionAboveToMiddleAndBelo
 
 　　2019/01/08現在、仮に、uni67B4 おうこ の字だけマッピング内に使える字形を入れてみてあります。
 
+⑧．上記 uni67B4 をdeleteし、空きグリフにしました  
+
+⑨．cid64786にUNICODE 32FF を割り当て、平成の次の元号が入るグリフを作成しました  
+
+⑩．新グリフはフォントのマッピング外のunicodeであるため、cidmapingの対象にするため、  
+　　Glyphs上でフォント情報を割り当て。  
+　　Glyphsのメニューの編集＞選択内容のプロパティを編集＞  
+　　cid64786/Unicode 32FF/製品用名 un32FF/文字体系 han/カテゴリ Symbol/サブカテゴリ Other/と設定しOK  
+　　続いてGlyphsのメニューのウィンドウ＞グリフ情報を開き、作成したフォント32FFを検索すると検索対象が無いことがわかる。  
+　　マッピングされていないフォントを新規Unicodeに割り当てて新規作成した場合グリフのマッピング情報への追加が必要  
+　　そこで次に、  
+Macintosh HD⁩ ▸ ⁨ユーザ⁩ ▸ ⁨gentaogawa⁩ ▸ ⁨ライブラリ⁩ ▸ ⁨Application Support⁩ ▸ ⁨Glyphs⁩ ▸ ⁨Info⁩ ▸ ⁨GlyphData.xml　を作る  
+　　オリジナルは  
+‎⁨Macintosh HD⁩ ▸ ⁨アプリケーション⁩ ▸ ⁨Glyphs.app⁩ ▸ ⁨Contents⁩ ▸ ⁨Frameworks⁩ ▸ ⁨GlyphsCore.framework⁩ ▸ ⁨Versions⁩ ▸ ⁨A⁩ ▸ ⁨Resources⁩ ▸ ⁨GlyphData.xml  
+　　にあるのでコピーしてくる  
+　　上記xmlにはマッピング情報がxmlで格納されているので、その L8349 行目に以下のコードを追加して上書き保存し、Glyphsを再起動する  
+<glyph unicode="32FF" name="cid64786" category="Symbol" script="han" production="un32FF" altNames="nextnengo" description="NEXT NENGO" />  
+　　これでマッピング情報への追加ができたので追加したグリフのUnicodeと、Cidが補完される  
+
+⑪．あとは出力メニューから.OTFフォントファイルを書き出しをすれば完成。  
+　　リポジトリ内に完成した.otfファイル/.glyphsファイル/.xmlカスタムマッピングファイルを追加してあります。  
+
+これら一連の情報は適時読みやすく更新していきます。
