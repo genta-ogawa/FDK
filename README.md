@@ -164,7 +164,7 @@ Macintosh HD⁩ ▸ ⁨ユーザ⁩ ▸ ⁨gentaogawa⁩ ▸ ⁨ライブラリ�
 ‎⁨Macintosh HD⁩ ▸ ⁨アプリケーション⁩ ▸ ⁨Glyphs.app⁩ ▸ ⁨Contents⁩ ▸ ⁨Frameworks⁩ ▸ ⁨GlyphsCore.framework⁩ ▸ ⁨Versions⁩ ▸ ⁨A⁩ ▸ ⁨Resources⁩ ▸ ⁨GlyphData.xml  
 　　にあるのでコピーしてくる  
 　　上記xmlにはマッピング情報がxmlで格納されているので、その L8349 行目に以下のコードを追加して上書き保存し、Glyphsを再起動する  
-<glyph unicode="32FF" name="cid64786" category="Symbol" script="han" production="un32FF" altNames="nextnengo" description="NEXT NENGO" />  
+glyph unicode="32FF" name="cid64786" category="Symbol" script="han" production="un32FF" altNames="nextnengo" description="NEXT NENGO" /  
 　　これでマッピング情報への追加ができたので追加したグリフのUnicodeと、Cidが補完される  
 
 ⑪．あとは出力メニューから.OTFフォントファイルを書き出しをすれば完成。  
